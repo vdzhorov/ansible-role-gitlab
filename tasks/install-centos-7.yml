@@ -1,2 +1,25 @@
 ---
 
+- name: Add GitLab repository
+  yum_repository:
+    name: gitlab_gitlab-ee
+    description: gitlab_gitlab-ee
+    baseurl: '{{ gl_repository_baseurl }}'
+    gpgcheck: yes
+    gpgkey: '{{ gl_repository_gpg_key }}'
+    enabled: yes
+    sslverify: yes
+    sslcacert: '/etc/pki/tls/certs/ca-bundle.crt'
+    metadata_expire: '300'
+
+- name: Add GitLab repository (Source)
+  yum_repository:
+    name: gitlab_gitlab-ee-source
+    description: gitlab_gitlab-ee-source
+    baseurl: '{{ gl_repository_baseurl }}'
+    gpgcheck: yes
+    gpgkey: '{{ gl_repository_gpg_key }}'
+    enabled: yes
+    sslverify: yes
+    sslcacert: '/etc/pki/tls/certs/ca-bundle.crt'
+    metadata_expire: '300'
