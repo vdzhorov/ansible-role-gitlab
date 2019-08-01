@@ -28,3 +28,10 @@
     sslverify: yes
     sslcacert: '/etc/pki/tls/certs/ca-bundle.crt'
     metadata_expire: '300'
+
+- name: Install GitLab (this may take a while)
+  yum:
+    name: gitlab-ee
+    state: installed
+  environment:
+    EXTERNAL_URL: '{{ EXTERNAL_URL }}'
