@@ -35,3 +35,13 @@
     state: installed
   environment:
     EXTERNAL_URL: '{{ EXTERNAL_URL }}'
+
+- name: Open ports in firewalld
+  firewalld:
+    service: '{{ item }}'
+    permanent: yes
+    state: enabled
+  notify: 'Reload firewalld'
+  loop:
+    - http
+    - https
