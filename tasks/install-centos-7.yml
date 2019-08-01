@@ -1,5 +1,10 @@
 ---
 
+- name: Install pre-requisites
+  yum:
+    name: 'curl, policycoreutils-python, openssh-server'
+    state: installed
+
 - name: Add GitLab repository
   yum_repository:
     name: gitlab_gitlab-ee
